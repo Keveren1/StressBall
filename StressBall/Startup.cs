@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace StressBall
 {
@@ -36,6 +37,8 @@ namespace StressBall
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StressBall", Version = "v1" });
             });
+
+            services.AddDbContext<StressBallContext>(opt => opt.UseSqlServer(StressBallContext.ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
