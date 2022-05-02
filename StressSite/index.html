@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <title>StressBall</title>
+</head>
+
+<body>
+    <h1>The Good</h1>
+    <div id="app">
+        <button id="button" v-on:click="helperGetFact()">
+            Bliv fornærmet din so
+        </button>
+        <div id="outputField" v-if="Compliment">
+            <ul>
+                <li>{{Compliment}}</li>
+            </ul>
+        </div>
+
+        <h1>The Bad</h1>
+        <div id="app">
+            <button id="button" v-on:click="helperGetFactos()">
+                Bliv fornærmet din so
+            </button>
+            <div id="outputField" v-if="Insult">
+                <ul>
+                    <li>{{Insult}}</li>
+                </ul>
+            </div>
+
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="index.js"></script>
+</body>
+
+</html>
