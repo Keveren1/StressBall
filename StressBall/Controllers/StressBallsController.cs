@@ -13,7 +13,16 @@ namespace StressBall.Controllers
     [ApiController]
     public class StressBallsController : ControllerBase
     {
-        private StressBallManager _manager = new StressBallManager();
+        
+        private StressBallDBManager _recordManager;
+
+        public StressBallsController(StressBallContext context)
+        {
+            _recordManager = new StressBallDBManager(context);
+        }
+        
+        
+        //private StressBallManager _manager = new StressBallManager();
 
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -22,7 +31,7 @@ namespace StressBall.Controllers
         public ActionResult<IEnumerable<StressBallData>> Get([FromQuery] string? accelerationFilter,
             [FromQuery] DateTime? dateTimeFilter)
         {
-            IEnumerable<StressBallData> stressBalls = _manager.GetAll(accelerationFilter, dateTimeFilter);
+            IEnumerable<StressBallData> stressBalls = _recordManager.GetAll(accelerationFilter, dateTimeFilter);
 
             if (stressBalls.Count() <= 0)
             {
@@ -39,7 +48,7 @@ namespace StressBall.Controllers
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            StressBallData stressBall = _manager.GetById(id);
+            StressBallData stressBall = _recordManager.GetById(id);
             if (stressBall == null) return NotFound("" + id);
             return Ok(stressBall);
         }
@@ -49,7 +58,7 @@ namespace StressBall.Controllers
         [HttpPost]
         public StressBallData Post(StressBallData newStressBall)
         {
-            return _manager.PostStressBallData(newStressBall);
+            return _recordManager.PostStressBallData(newStressBall);
         }
 
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -57,8 +66,8 @@ namespace StressBall.Controllers
         [HttpDelete("{id}")]
         public StressBallData Delete(int id)
         {
-            StressBallData stressBall = _manager.GetById(id);
-            return _manager.Delete(id);
+            StressBallData stressBall = _recordManager.GetById(id);
+            return _recordManager.Delete(id);
         }
     }
 
