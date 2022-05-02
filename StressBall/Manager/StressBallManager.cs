@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-
+/*
 namespace StressBall.Manager
 {
     public class StressBallManager
@@ -54,3 +54,4 @@ namespace StressBall.Manager
         }
     }
 }
+*/
