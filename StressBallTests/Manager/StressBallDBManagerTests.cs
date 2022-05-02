@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace StressBall.Manager.Tests
 {
     [TestClass()]
-    public class StressBallManagerTests
+    public class StressBallDBManagerTests
     {
         private StressBallDBManager _manager;
 
         [TestInitialize]
         public void SetUp()
         {
-            _manager = new StressBallDBManager();
+            _manager = new StressBallDBManager(null);
         }
         [TestMethod()]
         public void GetAllTest()
@@ -36,7 +36,7 @@ namespace StressBall.Manager.Tests
         public void PostStressBallDataTest()
         {
             var stressBall = new StressBallData();
-            StressBallData testStressBallData = _manager.PostStressBallData(stressBall);
+            StressBallData testStressBallData = _manager.Add(stressBall);
             Assert.IsNotNull(testStressBallData);
             Assert.AreEqual(stressBall, testStressBallData);
         }
@@ -44,7 +44,7 @@ namespace StressBall.Manager.Tests
         [TestMethod()]
         public void DeleteTest()
         {
-            _manager.PostStressBallData(new StressBallData() {Id = 2, Acceleration = "", DateTime = DateTime.Now});
+            _manager.Add(new StressBallData() { Id = 2, Acceleration = "", DateTime = DateTime.Now });
             StressBallData deleteStressBallData = _manager.Delete(2);
             Assert.IsNotNull(deleteStressBallData);
         }
