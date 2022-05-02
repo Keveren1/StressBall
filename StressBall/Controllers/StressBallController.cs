@@ -60,7 +60,11 @@ namespace StressBall.Controllers
         public ActionResult GetById(int id)
         {
             StressBallData stressBall = _stressBallManager.GetById(id);
-            if (stressBall == null) return NotFound("No such ball found, id: " + id);
+            
+            if (stressBall == null)
+            {
+                return NotFound("No such ball found, id: " + id);
+            }
             return Ok(stressBall);
         }
 
@@ -122,6 +126,4 @@ namespace StressBall.Controllers
             return _stressBallManager.Delete(id);
         }
     }
-
-
 }

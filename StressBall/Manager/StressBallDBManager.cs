@@ -18,7 +18,7 @@ public class StressBallDBManager
     }
     
     /// <summary>
-    /// Returns a list of stressballs if acceleration and date time is null otherwise it returns a filtered list
+    /// Returns a list of stress balls if acceleration and date time is null otherwise it returns a filtered list
     /// </summary>
     /// <param name="accelerationFilter"></param>
     /// <param name="dateTimeFilter"></param>
