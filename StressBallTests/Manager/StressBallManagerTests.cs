@@ -44,7 +44,8 @@ namespace StressBall.Manager.Tests
         [TestMethod()]
         public void DeleteTest()
         {
-            StressBallData deleteStressBallData = _manager.Delete(1);
+            _manager.PostStressBallData(new StressBallData() {Id = 2, Acceleration = "", DateTime = DateTime.Now});
+            StressBallData deleteStressBallData = _manager.Delete(2);
             Assert.IsNotNull(deleteStressBallData);
         }
     }
