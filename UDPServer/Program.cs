@@ -20,7 +20,7 @@ using (HttpClient client = new HttpClient())
             Console.WriteLine("Server received: " + message);
         
             HttpContent content = new StringContent(message, Encoding.UTF8, "application/json");
-            client.PostAsync("https://localhost:7028/api/Sensor", content);
+            client.PostAsync("https://localhost:5001/api/StressBall", content);
             
             socket.Send(data, data.Length, clientEndPoint); 
         }

@@ -10,9 +10,9 @@ namespace StressBall
     [Table("StressBallData")]
     public class StressBallData
     {
-        public string Speed { get; set; }
         [Key]
         public int Id { get; set; }
+        public string Speed { get; set; }
         public DateTime DateTimeNow { get; set; }
 
     }
