@@ -6,12 +6,7 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-//namespace StressBall.Manager.Tests
-//{
-//    [TestClass()]
-//    public class StressBallManagerTests
-//    {
-//        private StressBallDBManager _manager;
+
 
 //        [TestInitialize]
 //        public void SetUp()
@@ -41,12 +36,4 @@
 //            Assert.AreEqual(stressBall, testStressBallData);
 //        }
 
-//        [TestMethod()]
-//        public void DeleteTest()
-//        {
-//            _manager.PostStressBallData(new StressBallData() {Id = 2, Acceleration = "", DateTime = DateTime.Now});
-//            StressBallData deleteStressBallData = _manager.Delete(2);
-//            Assert.IsNotNull(deleteStressBallData);
-//        }
-//    }
-//}
+
