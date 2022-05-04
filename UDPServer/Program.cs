@@ -10,7 +10,7 @@ using (HttpClient client = new HttpClient())
     {
         IPEndPoint clientEndPoint = null;
         socket.Client.Bind(new IPEndPoint(IPAddress.Any, 10100));
-        
+        //
         while (true)
         {
             byte[] data = socket.Receive(ref clientEndPoint);
