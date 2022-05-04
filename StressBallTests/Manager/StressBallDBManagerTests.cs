@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StressBall.Manager.Tests
+/*namespace StressBall.Manager.Tests
 {
     [TestClass()]
     public class StressBallDBManagerTests
@@ -49,4 +49,4 @@ namespace StressBall.Manager.Tests
             Assert.IsNotNull(deleteStressBallData);
         }
     }
-}
+}*/

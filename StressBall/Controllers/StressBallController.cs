@@ -96,7 +96,7 @@ namespace StressBall.Controllers
         [HttpPost]
         public ActionResult <StressBallData> Post([FromBody] StressBallData newStressBall)
         {
-            if (newStressBall.Acceleration == null || newStressBall.DateTime == null)
+            if (newStressBall.Speed == null || newStressBall.DateTimeNow == null)
             {
                 return BadRequest(newStressBall);
             }
