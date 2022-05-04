@@ -96,13 +96,13 @@ namespace StressBall.Controllers
         [HttpPost]
         public ActionResult <StressBallData> Post([FromBody] StressBallData newStressBall)
         {
-            if (newStressBall.Acceleration == null || newStressBall.DateTime == null)
+            if (newStressBall.Speed == null || newStressBall.DateTimeNow == null)
             {
                 return BadRequest(newStressBall);
             }
 
             StressBallData createdItem = _stressBallManager.Add(newStressBall);
-            return _stressBallManager.Add(newStressBall);
+            return Ok(createdItem);
         }
 
         /// <summary>

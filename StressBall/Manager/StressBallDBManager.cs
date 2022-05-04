@@ -29,12 +29,12 @@ public class StressBallDBManager
 
         if (!string.IsNullOrWhiteSpace(accelerationFilter))
         {
-            result = result.FindAll(filterItem => filterItem.Acceleration.Contains(accelerationFilter, StringComparison.OrdinalIgnoreCase));
+            result = result.FindAll(filterItem => filterItem.Speed.Contains(accelerationFilter, StringComparison.OrdinalIgnoreCase));
         }
 
         if (dateTimeFilter != null)
         {
-            result = result.FindAll(filterItem => filterItem.DateTime.Equals(dateTimeFilter));
+            result = result.FindAll(filterItem => filterItem.DateTimeNow.Equals(dateTimeFilter));
         }
 
         return result.ToList();
@@ -72,8 +72,8 @@ public class StressBallDBManager
     public StressBallData Update(int id, StressBallData updates)
     {
         StressBallData stressBall = _stressBallContext.StressBall.Find(id);
-        stressBall.Acceleration = updates.Acceleration;
-        stressBall.DateTime = updates.DateTime;
+        stressBall.Speed = updates.Speed;
+        stressBall.DateTimeNow = updates.DateTimeNow;
         _stressBallContext.SaveChanges();
         return stressBall;
     }
