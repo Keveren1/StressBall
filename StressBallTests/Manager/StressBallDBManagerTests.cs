@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*namespace StressBall.Manager.Tests
+namespace StressBall.Manager.Tests
 {
-    [TestClass()]
+    /*[TestClass()]
     public class StressBallDBManagerTests
     {
         private StressBallDBManager _manager;
@@ -44,9 +44,9 @@ using System.Threading.Tasks;
         [TestMethod()]
         public void DeleteTest()
         {
-            _manager.Add(new StressBallData() { Id = 2, Acceleration = "", DateTime = DateTime.Now });
+            _manager.Add(new StressBallData() { Id = 2, Speed = "", DateTimeNow = DateTime.Now });
             StressBallData deleteStressBallData = _manager.Delete(2);
             Assert.IsNotNull(deleteStressBallData);
         }
-    }
-}*/
+    }*/
+}
