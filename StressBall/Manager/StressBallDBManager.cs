@@ -27,10 +27,10 @@ public class StressBallDBManager
     {
         List<StressBallData> result = new List<StressBallData>(_stressBallContext.StressBall);
 
-        if (!string.IsNullOrWhiteSpace(accelerationFilter))
+        /*if (!string.IsNullOrWhiteSpace(accelerationFilter))
         {
             result = result.FindAll(filterItem => filterItem.Speed.Contains(accelerationFilter, StringComparison.OrdinalIgnoreCase));
-        }
+        }*/
 
         if (dateTimeFilter != null)
         {

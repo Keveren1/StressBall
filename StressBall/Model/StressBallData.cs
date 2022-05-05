@@ -12,7 +12,7 @@ namespace StressBall
     {
         [Key]
         public int Id { get; set; }
-        public string Speed { get; set; }
+        public double Speed { get; set; }
         public DateTime DateTimeNow { get; set; }
 
     }
