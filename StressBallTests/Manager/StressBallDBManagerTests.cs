@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace StressBall.Manager.Tests
 {
-    /*[TestClass()]
+    [TestClass()]
     public class StressBallDBManagerTests
     {
         private StressBallDBManager _manager;
@@ -16,18 +17,25 @@ namespace StressBall.Manager.Tests
         [TestInitialize]
         public void SetUp()
         {
-            _manager = new StressBallDBManager(null);
+            var optionsBuilder = new DbContextOptionsBuilder<StressBallContext>();
+            optionsBuilder.UseSqlServer(StressBallContext.ConnectionString);
+
+
+            StressBallContext dbContext = new StressBallContext(optionsBuilder.Options);
+
+            _manager = new StressBallDBManager(dbContext);
         }
         [TestMethod()]
         public void GetAllTest()
         {
-            Assert.IsNotNull(_manager.GetAll(null, null));
+
+            Assert.IsNotNull(_manager.GetAll(1.1, DateTime.Now));
         }
 
         [TestMethod()]
         public void GetByIdTest()
         {
-            Assert.IsNotNull(_manager.GetById(1));
+            //Assert.IsNotNull(_manager.GetById(1));
             Assert.IsNull(_manager.GetById(0));
 
         }
@@ -44,9 +52,9 @@ namespace StressBall.Manager.Tests
         [TestMethod()]
         public void DeleteTest()
         {
-            _manager.Add(new StressBallData() { Id = 2, Speed = "", DateTimeNow = DateTime.Now });
+            _manager.Add(new StressBallData() { Id = 2, Speed = 1.1, DateTimeNow = DateTime.Now });
             StressBallData deleteStressBallData = _manager.Delete(2);
             Assert.IsNotNull(deleteStressBallData);
         }
-    }*/
+    }
 }

@@ -36,7 +36,7 @@ namespace StressBall.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
-        public ActionResult<List<StressBallData>> GetAll([FromQuery] string? accelerationFilter, [FromQuery] DateTime? dateTimeFilter)
+        public ActionResult<List<StressBallData>> GetAll([FromQuery] double? accelerationFilter, [FromQuery] DateTime? dateTimeFilter)
         {
             List<StressBallData> stressBalls = _stressBallManager.GetAll(accelerationFilter, dateTimeFilter);
 
