@@ -27,11 +27,6 @@ public class StressBallDBManager
     {
         List<StressBallData> result = new List<StressBallData>(_stressBallContext.StressBall);
 
-        /*if (!string.IsNullOrWhiteSpace(accelerationFilter))
-        {
-            result = result.FindAll(filterItem => filterItem.Speed.Contains(accelerationFilter, StringComparison.OrdinalIgnoreCase));
-        }*/
-
         if (dateTimeFilter != null)
         {
             result = result.FindAll(filterItem => filterItem.DateTimeNow.Equals(dateTimeFilter));
@@ -85,10 +80,6 @@ public class StressBallDBManager
     /// <returns></returns>
     public StressBallData Delete(int id)
     {
-        //StressBallData stressBall = GetById(id);
-        //if (stressBall == null) return null;
-        //_stressBallContext.Remove(stressBall);
-        //return stressBall;
         StressBallData stressball = _stressBallContext.StressBall.Find(id);
         if (stressball == null) return null;
         _stressBallContext.StressBall.Remove(stressball);
