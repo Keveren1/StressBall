@@ -1,10 +1,10 @@
-name: Build and deploy .NET Core application to windows webapp StressBallAPI with API Management Service StressBallAPI
+name: Build and deploy .NET Core application to windows webapp newStressballWeb with API Management Service StressBallAPI
 on:
   push:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: StressBallAPI
+  AZURE_WEBAPP_NAME: newStressballWeb
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: StressBall
   CONFIGURATION: Release
@@ -13,7 +13,7 @@ env:
   AZURE_APIM_RESOURCEGROUP: Datamatiker-Studie
   AZURE_APIM_SERVICENAME: StressBallAPI
   AZURE_APIM_API_ID: StressBall
-  AZURE_APIM_APPSERVICEURL: https://stressballapi.azurewebsites.net
+  AZURE_APIM_APPSERVICEURL: https://newstressballweb.azurewebsites.net:80/
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
   API_IMPORT_SPECIFICATION_PATH: StressBall/publish/swagger.json
@@ -64,7 +64,7 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.StressBallAPI_7190 }}
+        publish-profile: ${{ secrets.newStressballWeb_02c9 }}
     - name: Azure Login
       uses: azure/login@v1
       with:
