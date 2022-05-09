@@ -29,32 +29,34 @@ namespace StressBall.Manager.Tests
         public void GetAllTest()
         {
 
-            Assert.IsNotNull(_manager.GetAll(1.1, DateTime.Now));
+            Assert.IsNotNull(_manager.GetAll(null, null));
         }
 
         [TestMethod()]
         public void GetByIdTest()
         {
-            //Assert.IsNotNull(_manager.GetById(1));
+            Assert.IsNotNull(_manager.GetById(1));
             Assert.IsNull(_manager.GetById(0));
-
+            Assert.AreEqual(1, _manager.GetById(1).Id);
         }
 
         [TestMethod()]
-        public void PostStressBallDataTest()
+        public void AddDeleteTest()
         {
-            var stressBall = new StressBallData();
-            StressBallData testStressBallData = _manager.Add(stressBall);
-            Assert.IsNotNull(testStressBallData);
-            Assert.AreEqual(stressBall, testStressBallData);
-        }
+            int beforeAddCount = _manager.GetAll(null, null).Count;
+            int defaultId = 0;
 
-        [TestMethod()]
-        public void DeleteTest()
-        {
-            _manager.Add(new StressBallData() { Id = 2, Speed = 1.1, DateTimeNow = DateTime.Now });
-            StressBallData deleteStressBallData = _manager.Delete(2);
-            Assert.IsNotNull(deleteStressBallData);
+            StressBallData newStressball = new StressBallData() { Id = defaultId, Speed = 44.5, DateTimeNow = DateTime.Now };
+            StressBallData addedStressBall = _manager.Add(newStressball);
+            int newId = addedStressBall.Id;
+            Assert.AreNotEqual(defaultId, newId);
+            Assert.AreEqual(beforeAddCount + 1, _manager.GetAll(null, null).Count);
+
+            StressBallData StressBallToBeDeleted = _manager.Delete(newId);
+            Assert.AreEqual(beforeAddCount, _manager.GetAll(null, null).Count);
+            Assert.IsNull(_manager.Delete(100));
+
+            
         }
     }
 }

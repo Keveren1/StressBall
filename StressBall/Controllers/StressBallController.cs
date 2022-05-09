@@ -94,15 +94,17 @@ namespace StressBall.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [HttpPost]
-        public ActionResult <StressBallData> Post([FromBody] StressBallData newStressBall)
+        public ActionResult<StressBallData> Post([FromBody] StressBallData newStressBall)
         {
+            StressBallData stressball = new StressBallData();
+
             if (newStressBall.Speed == null || newStressBall.DateTimeNow == null)
             {
                 return BadRequest(newStressBall);
             }
 
-            StressBallData createdItem = _stressBallManager.Add(newStressBall);
-            return _stressBallManager.Add(newStressBall);
+            stressball = _stressBallManager.Add(newStressBall);
+            return Created("api/stressball/" + stressball.Id, stressball);
         }
 
         /// <summary>

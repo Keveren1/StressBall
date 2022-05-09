@@ -47,7 +47,7 @@ public class StressBallDBManager
     /// <returns></returns>
     public StressBallData Add(StressBallData newStressBall)
     {
-        newStressBall.Id = 0;
+        //newStressBall.Id = 0;
         _stressBallContext.StressBall.Add(newStressBall);
         _stressBallContext.SaveChanges();
         return newStressBall;
@@ -85,7 +85,12 @@ public class StressBallDBManager
     /// <returns></returns>
     public StressBallData Delete(int id)
     {
+        //StressBallData stressBall = GetById(id);
+        //if (stressBall == null) return null;
+        //_stressBallContext.Remove(stressBall);
+        //return stressBall;
         StressBallData stressball = _stressBallContext.StressBall.Find(id);
+        if (stressball == null) return null;
         _stressBallContext.StressBall.Remove(stressball);
         _stressBallContext.SaveChanges();
         return stressball;
